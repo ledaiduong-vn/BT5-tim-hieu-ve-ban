@@ -8,6 +8,38 @@ import streamlit as st
 
 st.set_page_config(page_title="Tìm hiểu về bạn", page_icon="🌟", layout="centered")
 
+# Ảnh nền theo chủ đề thần số học và tử vi
+BACKGROUND_IMAGE_URL = (
+    "https://images.unsplash.com/photo-1534447677768-be436bb09401"
+    "?auto=format&fit=crop&w=1600&q=80"
+)
+
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image:
+            linear-gradient(rgba(10, 10, 25, 0.78), rgba(10, 10, 25, 0.78)),
+            url("{BACKGROUND_IMAGE_URL}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+
+    [data-testid="stForm"], .stAlert, .stMetric, .stDownloadButton, .stTextInput, .stDateInput, .stNumberInput, .stSelectbox {{
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 10px;
+        padding: 8px;
+    }}
+
+    h1, h2, h3, p, label {{
+        color: #f5f6ff !important;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 def normalize_text(value: str) -> str:
     return re.sub(r"\s+", " ", value.strip())
